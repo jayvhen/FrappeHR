@@ -1,0 +1,4 @@
+# shell scripts run inside Linux containers - never convert to CRLF
+*.sh text eol=lf
+docker/** text eol=lf
+novacore/** text eol=lf

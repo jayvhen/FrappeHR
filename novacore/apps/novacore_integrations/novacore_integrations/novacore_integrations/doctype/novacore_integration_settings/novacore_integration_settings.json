@@ -1,0 +1,311 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-16 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_section",
+  "request_timeout",
+  "max_retries",
+  "biometric_section",
+  "biometric_enabled",
+  "biometric_alert_minutes",
+  "column_break_b",
+  "biometric_alert_email",
+  "bank_section",
+  "bank_enabled",
+  "bank_api_url",
+  "bank_token_url",
+  "column_break_bank",
+  "bank_client_id",
+  "bank_client_secret",
+  "bank_source_account",
+  "ad_section",
+  "ad_enabled",
+  "ad_tenant_id",
+  "ad_domain",
+  "column_break_ad",
+  "ad_client_id",
+  "ad_client_secret",
+  "kpi_section",
+  "kpi_enabled",
+  "kpi_api_url",
+  "column_break_kpi",
+  "kpi_api_key",
+  "jobs_section",
+  "job_board_enabled",
+  "job_board_url",
+  "column_break_jobs",
+  "job_board_api_key",
+  "esign_section",
+  "esign_enabled",
+  "esign_api_url",
+  "column_break_esign",
+  "esign_api_key",
+  "esign_webhook_secret",
+  "sms_section",
+  "sms_payslip_notice"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_section",
+   "fieldtype": "Section Break",
+   "label": "General"
+  },
+  {
+   "fieldname": "request_timeout",
+   "fieldtype": "Int",
+   "label": "Request Timeout (seconds)",
+   "default": "30"
+  },
+  {
+   "fieldname": "max_retries",
+   "fieldtype": "Int",
+   "label": "Retries on Failure",
+   "default": "2"
+  },
+  {
+   "fieldname": "biometric_section",
+   "fieldtype": "Section Break",
+   "label": "Biometric Terminals"
+  },
+  {
+   "fieldname": "biometric_enabled",
+   "fieldtype": "Check",
+   "label": "Enable Biometric Push API",
+   "default": "1"
+  },
+  {
+   "fieldname": "biometric_alert_minutes",
+   "fieldtype": "Int",
+   "label": "Alert When Device Silent For (minutes)",
+   "default": "5"
+  },
+  {
+   "fieldname": "column_break_b",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "biometric_alert_email",
+   "fieldtype": "Data",
+   "label": "Device Alert Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "bank_section",
+   "fieldtype": "Section Break",
+   "label": "Bank Payroll API"
+  },
+  {
+   "fieldname": "bank_enabled",
+   "fieldtype": "Check",
+   "label": "Enable Bank API Disbursement"
+  },
+  {
+   "fieldname": "bank_api_url",
+   "fieldtype": "Data",
+   "label": "Disbursement Endpoint URL",
+   "depends_on": "bank_enabled",
+   "mandatory_depends_on": "bank_enabled"
+  },
+  {
+   "fieldname": "bank_token_url",
+   "fieldtype": "Data",
+   "label": "OAuth2 Token URL",
+   "depends_on": "bank_enabled",
+   "mandatory_depends_on": "bank_enabled"
+  },
+  {
+   "fieldname": "column_break_bank",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_client_id",
+   "fieldtype": "Data",
+   "label": "Client ID",
+   "depends_on": "bank_enabled",
+   "mandatory_depends_on": "bank_enabled"
+  },
+  {
+   "fieldname": "bank_client_secret",
+   "fieldtype": "Password",
+   "label": "Client Secret",
+   "depends_on": "bank_enabled",
+   "mandatory_depends_on": "bank_enabled"
+  },
+  {
+   "fieldname": "bank_source_account",
+   "fieldtype": "Data",
+   "label": "Company Source Account No.",
+   "depends_on": "bank_enabled"
+  },
+  {
+   "fieldname": "ad_section",
+   "fieldtype": "Section Break",
+   "label": "Active Directory / Microsoft 365"
+  },
+  {
+   "fieldname": "ad_enabled",
+   "fieldtype": "Check",
+   "label": "Enable Account Provisioning"
+  },
+  {
+   "fieldname": "ad_tenant_id",
+   "fieldtype": "Data",
+   "label": "Tenant ID",
+   "depends_on": "ad_enabled",
+   "mandatory_depends_on": "ad_enabled"
+  },
+  {
+   "fieldname": "ad_domain",
+   "fieldtype": "Data",
+   "label": "User Principal Domain",
+   "depends_on": "ad_enabled",
+   "mandatory_depends_on": "ad_enabled",
+   "description": "e.g. novacore.com.ph"
+  },
+  {
+   "fieldname": "column_break_ad",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ad_client_id",
+   "fieldtype": "Data",
+   "label": "Client ID",
+   "depends_on": "ad_enabled",
+   "mandatory_depends_on": "ad_enabled"
+  },
+  {
+   "fieldname": "ad_client_secret",
+   "fieldtype": "Password",
+   "label": "Client Secret",
+   "depends_on": "ad_enabled",
+   "mandatory_depends_on": "ad_enabled"
+  },
+  {
+   "fieldname": "kpi_section",
+   "fieldtype": "Section Break",
+   "label": "Call Center / QA KPI System"
+  },
+  {
+   "fieldname": "kpi_enabled",
+   "fieldtype": "Check",
+   "label": "Enable KPI Import"
+  },
+  {
+   "fieldname": "kpi_api_url",
+   "fieldtype": "Data",
+   "label": "KPI Export API URL",
+   "depends_on": "kpi_enabled",
+   "mandatory_depends_on": "kpi_enabled",
+   "description": "GET {url}?cycle=<appraisal cycle> returning [{employee, kpi_score}]"
+  },
+  {
+   "fieldname": "column_break_kpi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "kpi_api_key",
+   "fieldtype": "Password",
+   "label": "API Key",
+   "depends_on": "kpi_enabled"
+  },
+  {
+   "fieldname": "jobs_section",
+   "fieldtype": "Section Break",
+   "label": "Job Boards"
+  },
+  {
+   "fieldname": "job_board_enabled",
+   "fieldtype": "Check",
+   "label": "Enable Job Board Auto-posting"
+  },
+  {
+   "fieldname": "job_board_url",
+   "fieldtype": "Data",
+   "label": "Job Board Publish URL",
+   "depends_on": "job_board_enabled",
+   "mandatory_depends_on": "job_board_enabled"
+  },
+  {
+   "fieldname": "column_break_jobs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "job_board_api_key",
+   "fieldtype": "Password",
+   "label": "API Key",
+   "depends_on": "job_board_enabled"
+  },
+  {
+   "fieldname": "esign_section",
+   "fieldtype": "Section Break",
+   "label": "E-Signature Service"
+  },
+  {
+   "fieldname": "esign_enabled",
+   "fieldtype": "Check",
+   "label": "Enable E-Signature for Job Offers"
+  },
+  {
+   "fieldname": "esign_api_url",
+   "fieldtype": "Data",
+   "label": "Envelope API URL",
+   "depends_on": "esign_enabled",
+   "mandatory_depends_on": "esign_enabled"
+  },
+  {
+   "fieldname": "column_break_esign",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "esign_api_key",
+   "fieldtype": "Password",
+   "label": "API Key",
+   "depends_on": "esign_enabled"
+  },
+  {
+   "fieldname": "esign_webhook_secret",
+   "fieldtype": "Password",
+   "label": "Webhook Signing Secret",
+   "depends_on": "esign_enabled",
+   "mandatory_depends_on": "esign_enabled"
+  },
+  {
+   "fieldname": "sms_section",
+   "fieldtype": "Section Break",
+   "label": "Notifications"
+  },
+  {
+   "fieldname": "sms_payslip_notice",
+   "fieldtype": "Check",
+   "label": "Send SMS Notice When Salary Slip Is Released",
+   "description": "Uses Frappe SMS Settings"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-16 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "NovaCore Integrations",
+ "name": "NovaCore Integration Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "issingle": 1,
+ "description": "Endpoints and credentials for external NovaCore systems"
+}

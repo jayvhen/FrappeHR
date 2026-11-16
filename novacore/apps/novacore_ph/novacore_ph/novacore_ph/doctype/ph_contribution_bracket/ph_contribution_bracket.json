@@ -1,0 +1,109 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-16 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "from_amount",
+  "to_amount",
+  "employee_amount",
+  "employer_amount",
+  "ec_amount",
+  "column_break_1",
+  "employee_rate",
+  "employer_rate",
+  "salary_floor",
+  "salary_cap",
+  "base_tax"
+ ],
+ "fields": [
+  {
+   "fieldname": "from_amount",
+   "fieldtype": "Currency",
+   "label": "From Amount",
+   "in_list_view": 1,
+   "reqd": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "to_amount",
+   "fieldtype": "Currency",
+   "label": "To Amount",
+   "in_list_view": 1,
+   "columns": 2,
+   "description": "Leave 0 for no upper limit"
+  },
+  {
+   "fieldname": "employee_amount",
+   "fieldtype": "Currency",
+   "label": "Employee Share (Fixed)",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "employer_amount",
+   "fieldtype": "Currency",
+   "label": "Employer Share (Fixed)",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "ec_amount",
+   "fieldtype": "Currency",
+   "label": "EC (Employer)",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "employee_rate",
+   "fieldtype": "Percent",
+   "label": "Employee Rate (%)",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "employer_rate",
+   "fieldtype": "Percent",
+   "label": "Employer Rate (%)",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "salary_floor",
+   "fieldtype": "Currency",
+   "label": "Salary Floor"
+  },
+  {
+   "fieldname": "salary_cap",
+   "fieldtype": "Currency",
+   "label": "Salary Cap"
+  },
+  {
+   "fieldname": "base_tax",
+   "fieldtype": "Currency",
+   "label": "Base Tax (BIR)",
+   "in_list_view": 1,
+   "columns": 1,
+   "description": "BIR: fixed tax plus Employee Rate on the excess over From Amount"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-16 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "NovaCore PH",
+ "name": "PH Contribution Bracket",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1,
+ "editable_grid": 1
+}

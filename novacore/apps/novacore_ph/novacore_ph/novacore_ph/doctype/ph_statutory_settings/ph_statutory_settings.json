@@ -1,0 +1,217 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-16 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "contribution_basis",
+  "semi_monthly_deduction",
+  "components_section",
+  "sss_component",
+  "philhealth_component",
+  "pagibig_component",
+  "withholding_tax_component",
+  "column_break_c",
+  "night_diff_component",
+  "overtime_component",
+  "time_section",
+  "night_diff_rate",
+  "overtime_rate",
+  "require_ot_approval",
+  "column_break_t",
+  "annual_working_days",
+  "hours_per_day",
+  "ot_rounding_minutes",
+  "lifecycle_section",
+  "probation_months",
+  "regularization_min_rating",
+  "column_break_l",
+  "escalate_after_hours",
+  "require_payroll_approval"
+ ],
+ "fields": [
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enable PH Payroll Engine",
+   "default": "1"
+  },
+  {
+   "fieldname": "contribution_basis",
+   "fieldtype": "Select",
+   "label": "Contribution Basis",
+   "options": "Salary Structure Assignment Base\nGross Pay",
+   "default": "Salary Structure Assignment Base",
+   "description": "Monthly compensation used to look up SSS / PhilHealth / Pag-IBIG brackets"
+  },
+  {
+   "fieldname": "semi_monthly_deduction",
+   "fieldtype": "Select",
+   "label": "Semi-monthly Contribution Schedule",
+   "options": "Split Equally\nSecond Cutoff Only",
+   "default": "Split Equally"
+  },
+  {
+   "fieldname": "components_section",
+   "fieldtype": "Section Break",
+   "label": "Salary Components"
+  },
+  {
+   "fieldname": "sss_component",
+   "fieldtype": "Link",
+   "label": "SSS Component",
+   "options": "Salary Component"
+  },
+  {
+   "fieldname": "philhealth_component",
+   "fieldtype": "Link",
+   "label": "PhilHealth Component",
+   "options": "Salary Component"
+  },
+  {
+   "fieldname": "pagibig_component",
+   "fieldtype": "Link",
+   "label": "Pag-IBIG Component",
+   "options": "Salary Component"
+  },
+  {
+   "fieldname": "withholding_tax_component",
+   "fieldtype": "Link",
+   "label": "Withholding Tax Component",
+   "options": "Salary Component"
+  },
+  {
+   "fieldname": "column_break_c",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "night_diff_component",
+   "fieldtype": "Link",
+   "label": "Night Differential Component",
+   "options": "Salary Component"
+  },
+  {
+   "fieldname": "overtime_component",
+   "fieldtype": "Link",
+   "label": "Overtime Component",
+   "options": "Salary Component"
+  },
+  {
+   "fieldname": "time_section",
+   "fieldtype": "Section Break",
+   "label": "Night Differential & Overtime"
+  },
+  {
+   "fieldname": "night_diff_rate",
+   "fieldtype": "Percent",
+   "label": "Night Differential Premium (%)",
+   "default": "10"
+  },
+  {
+   "fieldname": "overtime_rate",
+   "fieldtype": "Percent",
+   "label": "Overtime Rate (% of hourly rate)",
+   "default": "125"
+  },
+  {
+   "fieldname": "require_ot_approval",
+   "fieldtype": "Check",
+   "label": "Pay Overtime Only When Approved",
+   "default": "1"
+  },
+  {
+   "fieldname": "column_break_t",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "annual_working_days",
+   "fieldtype": "Int",
+   "label": "Annual Working Days (rate divisor)",
+   "default": "261"
+  },
+  {
+   "fieldname": "hours_per_day",
+   "fieldtype": "Float",
+   "label": "Hours per Day",
+   "default": "8"
+  },
+  {
+   "fieldname": "ot_rounding_minutes",
+   "fieldtype": "Int",
+   "label": "Round Overtime Down To (minutes)",
+   "default": "15"
+  },
+  {
+   "fieldname": "lifecycle_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Lifecycle & Workflow"
+  },
+  {
+   "fieldname": "probation_months",
+   "fieldtype": "Int",
+   "label": "Probation Period (months)",
+   "default": "6"
+  },
+  {
+   "fieldname": "regularization_min_rating",
+   "fieldtype": "Float",
+   "label": "Minimum Appraisal Score to Regularize",
+   "default": "3"
+  },
+  {
+   "fieldname": "column_break_l",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "escalate_after_hours",
+   "fieldtype": "Int",
+   "label": "Escalate Unapproved Requests After (hours)",
+   "default": "24"
+  },
+  {
+   "fieldname": "require_payroll_approval",
+   "fieldtype": "Check",
+   "label": "Require HR/Finance Approval Before Submitting Salary Slips",
+   "default": "1"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-16 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "NovaCore PH",
+ "name": "PH Statutory Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "HR Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Payroll Officer",
+   "read": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "issingle": 1,
+ "description": "Philippine payroll, statutory and workflow configuration"
+}

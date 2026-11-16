@@ -1,0 +1,89 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-16 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "agency",
+  "basis_amount",
+  "employee_share",
+  "employer_share",
+  "ec_share",
+  "table_version",
+  "currency"
+ ],
+ "fields": [
+  {
+   "fieldname": "agency",
+   "fieldtype": "Data",
+   "label": "Agency",
+   "in_list_view": 1,
+   "read_only": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "basis_amount",
+   "fieldtype": "Currency",
+   "label": "Basis",
+   "in_list_view": 1,
+   "read_only": 1,
+   "columns": 2,
+   "options": "currency"
+  },
+  {
+   "fieldname": "employee_share",
+   "fieldtype": "Currency",
+   "label": "Employee Share",
+   "in_list_view": 1,
+   "read_only": 1,
+   "columns": 2,
+   "options": "currency"
+  },
+  {
+   "fieldname": "employer_share",
+   "fieldtype": "Currency",
+   "label": "Employer Share",
+   "in_list_view": 1,
+   "read_only": 1,
+   "columns": 2,
+   "options": "currency"
+  },
+  {
+   "fieldname": "ec_share",
+   "fieldtype": "Currency",
+   "label": "EC",
+   "in_list_view": 1,
+   "read_only": 1,
+   "columns": 1,
+   "options": "currency"
+  },
+  {
+   "fieldname": "table_version",
+   "fieldtype": "Data",
+   "label": "Table Version",
+   "read_only": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "hidden": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-16 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "NovaCore PH",
+ "name": "PH Statutory Contribution",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1,
+ "editable_grid": 0
+}

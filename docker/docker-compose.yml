@@ -1,0 +1,64 @@
+# NovaCore HRIS - local development stack (Frappe / ERPNext / Frappe HR version-15 + NovaCore apps)
+#
+#   cd docker
+#   docker compose up -d        # first start: ~20-40 min (clones apps, builds assets, seeds demo)
+#   docker compose logs -f frappe
+#   open http://localhost:8000
+#
+# Settings can be overridden in docker/.env (see .env.example).
+name: novacore-hrms
+
+services:
+  mariadb:
+    image: mariadb:10.6
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+      - --skip-innodb-read-only-compressed
+      - --innodb-buffer-pool-size=256M
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-123}
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+
+  frappe:
+    image: frappe/bench:latest
+    command: bash /workspace/docker/init.sh
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    environment:
+      SHELL: /bin/bash
+      SITE_NAME: ${SITE_NAME:-novacore.localhost}
+      DB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-123}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin}
+      FRAPPE_BRANCH: ${FRAPPE_BRANCH:-version-15}
+      SEED_DEMO: ${SEED_DEMO:-1}
+    working_dir: /home/frappe
+    volumes:
+      # repository (NovaCore apps are symlinked into the bench from here, so edits are live)
+      - ..:/workspace
+      # bench, virtualenv and node toolchain persist across restarts
+      - bench-home:/home/frappe
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+    restart: unless-stopped
+
+volumes:
+  mariadb-data:
+  bench-home:

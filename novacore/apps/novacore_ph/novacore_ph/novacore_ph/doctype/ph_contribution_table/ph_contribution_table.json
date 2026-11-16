@@ -1,0 +1,128 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-16 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "agency",
+  "version",
+  "column_break_1",
+  "effective_from",
+  "enabled",
+  "brackets_section",
+  "brackets",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "agency",
+   "fieldtype": "Select",
+   "label": "Agency",
+   "options": "SSS\nPhilHealth\nPag-IBIG\nBIR",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Data",
+   "label": "Rate Table Version",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "effective_from",
+   "fieldtype": "Date",
+   "label": "Effective From",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "brackets_section",
+   "fieldtype": "Section Break",
+   "label": "Brackets",
+   "description": "SSS: match monthly compensation, fixed shares. PhilHealth / Pag-IBIG: rate on compensation clamped between floor and cap. BIR: semi-monthly taxable income, base tax + rate on excess."
+  },
+  {
+   "fieldname": "brackets",
+   "fieldtype": "Table",
+   "label": "Brackets",
+   "options": "PH Contribution Bracket",
+   "reqd": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-16 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "NovaCore PH",
+ "name": "PH Contribution Table",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "HR Manager",
+   "read": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1,
+   "share": 1,
+   "delete": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1,
+   "share": 1,
+   "delete": 1
+  },
+  {
+   "role": "HR User",
+   "read": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 0
+  },
+  {
+   "role": "Payroll Officer",
+   "read": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "format:{agency}-{version}",
+ "naming_rule": "Expression",
+ "title_field": "version",
+ "description": "Versioned statutory rate table (SSS, PhilHealth, Pag-IBIG, BIR)"
+}

@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-16 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "system_name",
+  "enabled",
+  "endpoint_url",
+  "secret",
+  "events_section",
+  "on_employee_created",
+  "on_employee_updated",
+  "column_break_e",
+  "on_employee_separated",
+  "on_payroll_released"
+ ],
+ "fields": [
+  {
+   "fieldname": "system_name",
+   "fieldtype": "Data",
+   "label": "System Name",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1,
+   "description": "e.g. Order Management, Warehouse, Finance"
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "endpoint_url",
+   "fieldtype": "Data",
+   "label": "Endpoint URL",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "secret",
+   "fieldtype": "Password",
+   "label": "Signing Secret",
+   "reqd": 1,
+   "description": "Used to sign each delivery: X-NovaCore-Signature = HMAC-SHA256(secret, body)"
+  },
+  {
+   "fieldname": "events_section",
+   "fieldtype": "Section Break",
+   "label": "Events"
+  },
+  {
+   "fieldname": "on_employee_created",
+   "fieldtype": "Check",
+   "label": "employee.created"
+  },
+  {
+   "fieldname": "on_employee_updated",
+   "fieldtype": "Check",
+   "label": "employee.updated"
+  },
+  {
+   "fieldname": "column_break_e",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "on_employee_separated",
+   "fieldtype": "Check",
+   "label": "employee.separated"
+  },
+  {
+   "fieldname": "on_payroll_released",
+   "fieldtype": "Check",
+   "label": "payroll.released"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-16 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "NovaCore Integrations",
+ "name": "ERP Event Subscription",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1,
+   "share": 1,
+   "delete": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:system_name",
+ "naming_rule": "By fieldname",
+ "description": "An external ERP module that receives signed HR event webhooks"
+}
